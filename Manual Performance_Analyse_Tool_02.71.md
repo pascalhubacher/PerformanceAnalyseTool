@@ -1,4 +1,4 @@
-How**t**o
+# How**t**o
 =========
 
 Version
@@ -145,243 +145,16 @@ G100/G200\" (NAKADE，KAZUHIRO)\
 02.70 Bug fixed LDEV section not show with VSP5x00 (Simon Leibundgut)\
 02.71 Support for Backend HIE data on the VSP5x00 (Simon Leibundgut)
 
-Supportmatrix PC
+## Supportmatrix PC
 ----------------
 
 Any Windows PC that has Dot Net version 4 installed.
 
-Supported Storage systems
+## Supported Storage systems
 -------------------------
-### VSP G-1x00 / VSP 5x00
+All storage systems supported that can create export data
 
-Supported
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   CMPK
-
--   HUR
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   Processor
-
--   True Copy
-
-A best practice command.txt to use could look like
-
-svpip 10.00.00.00
-
-login export \"password\"
-
-show
-
-group PhyPG
-
-group PhyLDEV
-
-group PhyProc
-
-group PhyExG
-
-group PhyExLDEV
-
-group PhyCMPK
-
-group PhyMPPK
-
-group PG
-
-group Port
-
-goup MFPort
-
-group PortWWN
-
-group LU
-
-;group LDEV
-
-group PPCGWWN
-
-group RemoteCopy
-
-group UniversalReplicator
-
-group URJNL
-
-group RCLU
-
-group RCLDEV
-
-group LDEVEachOfCU
-
-shortrange -2400:
-
-outpath \"output\"
-
-option compress
-
-apply
-
-### VSP Gx00 (G/F200, G/F400, G/F600, G/F800)
-
-Supported
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   Processor
-
--   True Copy
-
--   HUR
-
-A best practice command.txt to use could look like
-
-ip 10.0.0.0 ; Specifies IP address of SVP \<===== Change to IP Address
-of SVP
-
-dkcsn 420101 ; Specifies Serial Number of DKC \<===== Change to Serial
-Number of DKC
-
-login maintenance \"raid-maintenance\" ; Logs user into DKC \<=====
-Change to predefined Userid/password for exclusive use by export tool
-
-show ; Outputs storing period & gethering interval to standard output
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-; \| Group commands define the data to be exported.
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-group PhyPG ; Parity Groups
-
-group PhyLDEV ; Logical Volumes
-
-group PhyProc ; Micro-Processor usage
-
-group PhyExG ; External Volume Group usage
-
-group PhyExLDEV ; External Volume usage
-
-group PhyMPU ; Access Paths and Write Pending
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-group PG ; Parity Group Statistics
-
-;group LDEV ; LDEV usage in PGs, External Volume Groups or V-VOL Groups
-
-; ; Not required when using LDEVEachOfCU
-
-group Port ; Port usage
-
-group PortWWN ; Stats for HBAs connected to ports.
-
-group LU ; LDEV usage Summarised by LU Path
-
-group PPCGWWN ; Stats about HBAs
-
-group RemoteCopy ; Remote Copy Usage Summarized by Subsystem
-
-group RCLU ; Remote Copy Usage Summarized by LU path
-
-group RCLDEV ; Remote Copy Usage Summarized by LDEV
-
-group UniversalReplicator ; Remote Copy Usage by UR Summarized by
-Subsystem
-
-group URJNL ; Remote Copy Usage by UR Summarized by Journal Group
-
-group URLU ; Remote Copy Usage by UR Summarized by LU Path
-
-group URLDEV ; Remote Copy Usage by UR Summarized by LDEV
-
-group LDEVEachOfCU ; LDEV usage in CUs - Recommended
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-; \| end of group statements
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-; \| To limit the data collection within a date/time range, use the
-following sub-commands:-
-
-; \| range start_timestamp:end_timestamp
-
-; \| Where start_timestamp and end_timestamp are in the format:-
-yyyyMMddHHmm
-
-; \| For example:-
-
-; \| yyyyMMddHHmm:yyyyMMddHHmm
-
-; \| range 200607101200:200607111159
-
-; \| The above example will collect range data between 12:00 on 10th
-July 2006
-
-; \| and 11:59 on 11th July 2006
-
-; \| NB - this is the time on the SVP - not on your server.
-
-; \| Example below says get the latest 24 hours
-
-; \| (hhmm format)
-
-; \| range -2400:
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-range -2400:
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-; \| end of time statements
-
-;
-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+
-
-outpath out ; Specifies the sub-directory in which files will be saved
-----------------------------------------------------------------------
-
-option compress ; Specifies whether to compress files
------------------------------------------------------
-
-apply ; Executes processing for saving monitoring data in files
----------------------------------------------------------------
-
-The Menu options
+## The Menu options
 ----------------
 
 ### Save the configuration
@@ -422,7 +195,7 @@ The default is 20. This is used in the LU and the CPU section.
 
 ![](./media/image4.png)
 
-Load performance data
+## Load performance data
 ---------------------
 
 ![](./media/image5.png)
@@ -435,7 +208,7 @@ Select the folder containing the "ZIP" files.
 
 Now the PAT starts to unzip the zip files.
 
-Work with the GUI
+## Work with the GUI
 -----------------
 
 ### Treeview
