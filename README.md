@@ -29,6 +29,7 @@ This option sets globally the number of Top X elements should be set. The defaul
 ![SelectLoadPerformanceDataFolder](https://github.com/pascalhubacher/PerformanceAnalyseTool/blob/main/pictures/SelectLoadPerformanceDataFolder.PNG)
 
 Press the „Select Performance Data Folder“.
+
 ![BrowseFolder](https://github.com/pascalhubacher/PerformanceAnalyseTool/blob/main/pictures/BrowseFolder.PNG)
 
 Select the folder containing the “ZIP” files.
