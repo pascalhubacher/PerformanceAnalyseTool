@@ -32,6 +32,5 @@ Press the „Select Performance Data Folder“.
 
 ![BrowseFolder](https://github.com/pascalhubacher/PerformanceAnalyseTool/blob/main/pictures/BrowseFolder.PNG)
 
-Select the folder containing the “ZIP” files.
-Now the PAT starts to unzip the zip files.
+Select the folder containing the “ZIP” files. Now the PAT starts to unzip the zip files.
 
