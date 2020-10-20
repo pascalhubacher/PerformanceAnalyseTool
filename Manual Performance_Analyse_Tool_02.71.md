@@ -6,11 +6,6 @@ Version
 
 Version 02.71 of the "HDS_Performance_Analyse_Tool.exe"
 
-Classification
---------------
-
-HDS Internal Only
-
 Release Notes
 -------------
 
@@ -157,241 +152,7 @@ Any Windows PC that has Dot Net version 4 installed.
 
 Supported Storage systems
 -------------------------
-
-### AMS
-
-Supported. you need the pfm files (concatenation is not supported). It
-creates csv files similar to the high end performance output. These
-files have to be created before the analyse
-
-auperform -unit AMS -auto 1 -pfmstatis -count 1440
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   Drive Operate
-
--   LU
-
--   Port
-
--   Processor
-
-### HUS
-
-Supported. Supported. you need the pfm files (concatenation is not
-supported). It creates csv files similar to the high end performance
-output. These files have to be created before the analyse
-
-auperform -unit HUS -auto 1 -pfmstatis -count 1440
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   Drive Operate
-
--   LU
-
--   Port
-
--   Processor
-
-### USP
-
-Partially supported. I do no testing anymore. Stays as is but if you
-succeed in corrupt me then ...
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   True Copy
-
-### USP-V / USP-VM
-
-Supported.
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   Processor
-
--   True Copy
-
-### VSP
-
-Supported
-
-Data that can be analyzed if data available:
-
--   Cache
-
--   ESW
-
--   HUR
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   Processor
-
--   True Copy
-
-A best practice command.txt to use could look like
-
-svpip 10.00.00.00
-
-login export \"password\"
-
-show
-
-group PhyPG
-
-group PhyLDEV
-
-group PhyProc
-
-group PhyExG
-
-group PhyExLDEV
-
-group PhyESW
-
-group PhyMPPK
-
-group PG
-
-group Port
-
-group PortWWN
-
-group LU
-
-;group LDEV
-
-group PPCGWWN
-
-group RemoteCopy
-
-group UniversalReplicator
-
-group URJNL
-
-group RCLU
-
-group RCLDEV
-
-group LDEVEachOfCU
-
-shortrange -2400:
-
-outpath \"output\"
-
-option compress
-
-apply
-
-### HM700 (HUS-VM)
-
-Supported
-
-Data that can be analyzed if data available:
-
--   Backend
-
--   Cache
-
--   LDEV
-
--   LU
-
--   Parity Group
-
--   Port
-
--   Processor
-
--   True Copy
-
-A best practice command.txt to use could look like
-
-svpip 10.00.00.00
-
-login export \"password\"
-
-show
-
-group PhyPG
-
-group PhyLDEV
-
-group PhyProc
-
-group PhyExG
-
-group PhyExLDEV
-
-group PhyESW
-
-group PhyMPPK
-
-group PG
-
-group Port
-
-group PortWWN
-
-group LU
-
-;group LDEV
-
-group PPCGWWN
-
-group RemoteCopy
-
-group UniversalReplicator
-
-group URJNL
-
-group RCLU
-
-group RCLDEV
-
-group LDEVEachOfCU
-
-shortrange -2400:
-
-outpath \"output\"
-
-option compress
-
-apply
-
-### VSP G-1000
+### VSP G-1x00 / VSP 5x00
 
 Supported
 
@@ -625,8 +386,7 @@ The Menu options
 
 ### Save the configuration
 
-![](./media/image1.png){width="2.0118110236220472in"
-height="0.7598425196850394in"}
+![](./media/image1.png)
 
 If you set the "Save Configuration" the a file will be saves in the same
 folder as the Performance Analyse Tool (PAT) was executed. Be sure that
@@ -642,7 +402,7 @@ The "Clear all Checkboxes" is used to deselect all Checkboxes.
 
 ### No background color
 
-![](./media/image2.png){width="2.8666666666666667in" height="0.95in"}
+![](./media/image2.png)
 
 This option sets the background color of the surrounding of the graph to
 white if you print or printscreen. Click on this option to switch back
@@ -650,8 +410,7 @@ to show the colors.
 
 ### Hide error numbers in graph
 
-![](./media/image3.png){width="2.6871642607174104in"
-height="1.489397419072616in"}
+![](./media/image3.png)
 
 This option is used to hide the error values (minus values) in the
 performance export data series name
@@ -661,19 +420,16 @@ performance export data series name
 This option sets globally the number of Top X elements should be set.
 The default is 20. This is used in the LU and the CPU section.
 
-![](./media/image4.png){width="4.666666666666667in"
-height="2.738888888888889in"}
+![](./media/image4.png)
 
 Load performance data
 ---------------------
 
-![](./media/image5.png){width="6.268055555555556in"
-height="4.194106517935258in"}
+![](./media/image5.png)
 
 Press the „Select Performance Data Folder"
 
-![](./media/image6.png){width="6.268055555555556in"
-height="4.148568460192476in"}
+![](./media/image6.png)
 
 Select the folder containing the "ZIP" files.
 
@@ -717,30 +473,27 @@ are shown the next time you click on the element.
 If you check just some checkboxes the next time you click on "1MA" it
 only shows the CLPRs 00(CLPR0) and 02(CLPR2).
 
-![](./media/image7.png){width="1.375in" height="1.0625in"}
+![](./media/image7.png)
 
 In the next example you see that this works over all hierarchies.
 
-![](./media/image8.png){width="6.268055555555556in"
-height="4.1753554243219595in"}
+![](./media/image8.png)
 
 The checkbox in the higher hierarchy is to set all checkboxes in the
 hierarchy below or unset all.
 
-![](./media/image9.png){width="1.34375in" height="1.0625in"}
+![](./media/image9.png)
 
 ### Hide/Unhide Series
 
 If you click on the series name in the legend you can hide or unhide a
 series.
 
-![](./media/image10.png){width="4.897637795275591in"
-height="3.5984251968503935in"}
+![](./media/image10.png)
 
 ### Report Window
 
-![](./media/image11.png){width="5.783464566929134in"
-height="3.1102362204724407in"}
+![](./media/image11.png)
 
 In the "Report Windows" date selector you can specify the date and time
 from where you want to start showing the date and to where. With this
@@ -751,8 +504,7 @@ improve the collection time and the creation time of the graph.
 
 Some selections have several charts that are created in separated tabs.
 
-![](./media/image12.png){width="6.188976377952756in"
-height="3.937007874015748in"}
+![](./media/image12.png)
 
 Zooming chart
 -------------
@@ -762,8 +514,7 @@ Zooming chart
 In the chart you can zoom an area you like by left click the mouse and
 select the area.
 
-![](./media/image13.png){width="4.460629921259843in"
-height="2.87007874015748in"}
+![](./media/image13.png)
 
 After that you get the zoom of the area selected before
 
@@ -771,8 +522,7 @@ After that you get the zoom of the area selected before
 
 To zoom out you have to leftclick on the circle next to the axes.
 
-![](./media/image14.png){width="4.409448818897638in"
-height="2.811023622047244in"}
+![](./media/image14.png)
 
 Date Time Picker
 ----------------
@@ -780,8 +530,7 @@ Date Time Picker
 With this Date Time Picker you can select what time frame you want to
 analyze. All graphs are shown in the same time frame.
 
-![](./media/image15.png){width="4.4763779527559056in"
-height="0.9921259842519685in"}
+![](./media/image15.png)
 
 This selection does only apply for the following graphs.
 
@@ -796,40 +545,35 @@ Tooltip to show the data series name\$
 If you move over a datapoint in the graph a tooltip is shown with the
 name of the data series.
 
-![](./media/image16.png){width="4.338582677165355in"
-height="2.811023622047244in"}
+![](./media/image16.png)
 
 Printing a chart
 ----------------
 
 Right click on the chart.
 
-![](./media/image17.png){width="5.397637795275591in"
-height="3.3661417322834644in"}
+![](./media/image17.png)
 
 Save a chart
 ------------
 
 Right click on the chart.
 
-![](./media/image18.png){width="5.496062992125984in"
-height="3.4173228346456694in"}
+![](./media/image18.png)
 
 Copy to Clipboard
 -----------------
 
 Right click on the chart.
 
-![](./media/image19.png){width="5.4921259842519685in"
-height="3.425196850393701in"}
+![](./media/image19.png)
 
 Hide/Unhide Label
 -----------------
 
 Right click on the chart.
 
-![](./media/image20.png){width="6.261111111111111in"
-height="3.8944444444444444in"}
+![](./media/image20.png)
 
 Set max value for the Y-Axis
 ----------------------------
@@ -838,8 +582,7 @@ Right click on the chart. Then move the mouse pointer to the Y-Axis
 item. Then specify the max value for the Y-Axis and commit with the
 enter key. Then the graph immediately changes the Y-Axis.
 
-![](./media/image21.png){width="5.488188976377953in"
-height="3.4291338582677167in"}
+![](./media/image21.png)
 
 Toggle the graph type between line or stacked area
 --------------------------------------------------
@@ -847,5 +590,4 @@ Toggle the graph type between line or stacked area
 Right click on the chart. By clicking on the "Toggle Chart type" the
 chart switches between fast line or stacked area graphs.
 
-![](./media/image22.png){width="5.496062992125984in"
-height="3.4291338582677167in"}
+![](./media/image22.png)
