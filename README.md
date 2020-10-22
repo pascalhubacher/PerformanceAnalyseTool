@@ -9,3 +9,5 @@ https://knowledge.hitachivantara.com/Support_Information/Data_Collection/Storage
 
 ## What data to collect with the Export Tool
 https://knowledge.hitachivantara.com/Support_Information/Data_Collection/Storage/Optimal_Performance_Export_command.txt_script_templates
+
+# Latest windows build
