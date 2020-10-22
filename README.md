@@ -11,3 +11,4 @@ https://knowledge.hitachivantara.com/Support_Information/Data_Collection/Storage
 https://knowledge.hitachivantara.com/Support_Information/Data_Collection/Storage/Optimal_Performance_Export_command.txt_script_templates
 
 # Latest windows build
+https://github.com/pascalhubacher/PerformanceAnalyseTool/blob/main/build/HDS_Performance_Analyse_Tool_02.71_standalone.zip
