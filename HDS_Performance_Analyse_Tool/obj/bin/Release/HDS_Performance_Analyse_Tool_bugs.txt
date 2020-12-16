@@ -1,0 +1,20 @@
+Prio 1:
+-------
+
+22.03.2013 lu server übersicht response zeit nicht korrekt
+
+Prio 2:
+-------
+
+21.10.2012 testdaten vsp (lu auf portlevel)
+	nur bei port 3-e bricht der vorgang ab. array global ist plötzlich 1440 anstatt 720?
+
+Prio 3:
+-------
+
+
+
+
+
+erledigt:
+---------

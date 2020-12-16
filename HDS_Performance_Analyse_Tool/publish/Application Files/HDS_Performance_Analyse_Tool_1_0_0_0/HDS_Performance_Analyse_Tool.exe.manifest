@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="HDS_Performance_Analyse_Tool.exe" version="1.0.0.0" publicKeyToken="493a290a727a340a" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="HDS_Performance_Analyse_Tool" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="HDS_Performance_Analyse_Tool.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HDS_Performance_Analyse_Tool.exe" size="369664">
+      <assemblyIdentity name="HDS_Performance_Analyse_Tool" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>StEWHlra1bPZfLO142lSpTxSQls=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICSharpCode.SharpZipLib.dll" size="200704">
+      <assemblyIdentity name="ICSharpCode.SharpZipLib" version="0.86.0.518" publicKeyToken="1B03E6ACF1164F73" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ep35wl1JaQtqPEUWB9MRqGaxMfQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=HDS\PHubacher" issuerKeyHash="76fa89f8af20eca81861ddf9ebe9df93c153030e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>d4Iro4or+fodUZGAjQ3MCsQ8Dls=</DigestValue></Reference></SignedInfo><SignatureValue>hBswV1IuikHrQFQkBaaIpyKsQ52a1g0a1gOZy3krmMKwBmclT7nPNwHKVWhvBSBNte8yvlX3K36PjIOptHkT1pdrgphjqKuAmGWXb8eqrfY2KB3nEQWVrb6fV2RWDIk0rXRMtWXoYrUY0mocEQ8E2c8wyg9y2KTNF1wyZ1wlVRY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>mvZOefqMXwi4VMECwDH6G3aRM8PbOubsz7FTa89AQCP+iAS14jwTYBTENFwt54sf0uQ5uki4mg3PQJfMKYIk+AWH2xu8ek6yW/NP6DgMjtf00eD2eABtlU26F3smlynHFiK6uSa8QG1PrX45cfc5Y43XVNDcvSAEuL9Lqpor+u0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="5b0e3cc40acc0d8d8091511dfaf92b8aa32b8277" Description="" Url=""><as:assemblyIdentity name="HDS_Performance_Analyse_Tool.exe" version="1.0.0.0" publicKeyToken="493a290a727a340a" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=HDS\PHubacher</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>1DdJ3S88zteEVu+2yfUPeGQLozg=</DigestValue></Reference></SignedInfo><SignatureValue>CndE/ZdthXl0NMZGvE6T5T6jhNpGDQwocKyk5F6a9fRNQwR8wXDh7KrM+/fQytU8t1vp4tC7A96B/5L9zAes2ckB++g36zgGc64twyJQEoPUAk9suDBnkSUtkxWwOvX/Zc7Dg+iL5UYRij04La0TpKhmIHrehL/Zd7RvtH09aHA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>mvZOefqMXwi4VMECwDH6G3aRM8PbOubsz7FTa89AQCP+iAS14jwTYBTENFwt54sf0uQ5uki4mg3PQJfMKYIk+AWH2xu8ek6yW/NP6DgMjtf00eD2eABtlU26F3smlynHFiK6uSa8QG1PrX45cfc5Y43XVNDcvSAEuL9Lqpor+u0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQG43XocBi2JtCL7TPZwnwdTANBgkqhkiG9w0BAQUFADAlMSMwIQYDVQQDHhoASABEAFMAXABQAEgAdQBiAGEAYwBoAGUAcjAeFw0xNTA2MjIwODQ2MzlaFw0xNjA2MjExNDQ2MzlaMCUxIzAhBgNVBAMeGgBIAEQAUwBcAFAASAB1AGIAYQBjAGgAZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCa9k55+oxfCLhUwQLAMfobdpEzw9s65uzPsVNrz0BAI/6IBLXiPBNgFMQ0XC3nix/S5Dm6SLiaDc9Al8wpgiT4BYfbG7x6TrJb80/oOAyO1/TR4PZ4AG2VTboXeyaXKccWIrq5JrxAbU+tfjlx9zljjddU0Ny9IAS4v0uqmiv67QIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAEihG1ivxSgcXhHPHVXzK5aR9ngUpXKX9X+t3EACDSQ+Fl/Gs9RBWdkNQEs3e/nLc3zQXYx9nP3uJzA1Od+SOW/OJR/u/2nc9ZYkg6xDx6/C90U76z5OEnjvRHvBjPjPtRPgGcJc0fmNc4i70rIXsVEJCt+xBOhvBHvXhimIIo8q</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

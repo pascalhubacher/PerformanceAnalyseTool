@@ -1,0 +1,129 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HDS_Performance_Analyse_Tool
+</name>
+</assembly>
+<members>
+<member name="T:HDS_Performance_Analyse_Tool.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:HDS_Performance_Analyse_Tool.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:HDS_Performance_Analyse_Tool.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="F:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.str_raidcom_data_available">
+ <summary>
+ The str_raidcom_data_available [string] contains the available parts of the raidcom information
+ </summary>
+</member>
+<member name="F:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.str_raidcom_full_path">
+ <summary>
+ The str_raidcom_full_path [string] contains the full path name of the horcm directory. if it is "" then the horcm folder does not exist.
+ </summary>
+</member>
+<member name="F:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.str_raidcom_horcmdir_pattern">
+ <summary>
+ The str_raidcom_horcmdir_pattern [string] contains the pattern to search the foldernames for horcm data
+ </summary>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.dictionary_get_top_x_out_of_several_dictionaries(System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Double}},System.Int32,System.String)">
+ <summary>
+ "dictionary_get_top_x_out_of_several_dictionaries" .
+ </summary>
+ <param name="list_of_dictionaries">The list_of_dictionaries containing the dictionaries with the top x elements in it. means top x times dictionary.</param>
+ <param name="int_top_x_dictionary_size">The int_top_x_dictionary_size.</param>
+ <param name="str_progress_bar_text">The str_progress_bar_text.</param>
+ <returns>The list of the directories but only the top x elements are still in over all dictionaries</returns>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.treeview_populate(System.String)">
+ <summary>
+ Treeview_populates the tree.
+ </summary>
+ <param name="path">The path.</param>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.TreeView_available_performancedata_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs,System.String)">
+ <summary>
+ this sub prepares the data behind the selection to graph it. for example what ports should be shown?
+ </summary>
+ <param name="sender">The sender.</param>
+ <param name="e">The <see cref="T:System.Windows.Forms.TreeViewEventArgs"/> instance containing the event data.</param>
+ <param name="str_what_type_of_graph">The str_what_type_of_graph.</param>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.checkbox_treeview_sub_check_uncheck(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+check/uncheck all subitems
+ <summary>
+ check/uncheck all subitems
+ Handles the uncheck event of the checkbox_treeview_sub_check control.
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The <see cref="T:System.Windows.Forms.TreeViewEventArgs"/> instance containing the event data.</param>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.boolean_raidcom_folder_available(System.String)">
+ <summary>
+ This function checks if a folder called *horcmdir* exists in the parent folder of the perfromance data folder. if so the return value is "True"
+ </summary>
+ <param name="folderpath">The folderpath is the full name of the performance data path. </param>
+ <returns></returns>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.dict_raidcom_parse_get_ldevlist_def(System.String)">
+ <summary>
+ This Function reads the outputfile of the raidcom command "raidcom get ldevlist defined" and puts it into 2 arrays. a physical ldev and a vvol ldev array.
+ </summary>
+ <param name="str_filepath">This is the fullpath of the raidcom directory.</param>
+ <returns>A dictionary containing the two arrays. a physical ldev array with the key name "physical_ldev" and a vvol ldev array with the key name "vvol_ldev".</returns>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.array_str_create_array_calculated_with_formula(System.Array@,System.Int32,System.Collections.ArrayList,System.String,System.String,System.String)">
+ <summary>
+ str_df_create_response_time_files creates out of a lot of data the response time of the lun.
+ simple:
+ LUN response time = 1 / (total read and write counts) * ((read cmd job * read cmd time) + (read cmd hit count * read cmd hit time) + (read cmd miss count * read cmd miss time) + (write cmd job * write cmd time) + (write cmd hit count * write cmd hit time) + (write cmd miss count * write cmd miss time))
+ in full detail:
+ LUN response time = 1 / (Read CMD Job Count + Read CMD Hit Count + Read CMD Miss Count + Write CMD Job Count + Write CMD Hit Count + Write CMD Miss Count) * ((Write CMD Job Count * Write CMD Job Time) + (Write CMD Hit Count * Write CMD Hit Time) + (Write CMD Miss Count * Write CMD Miss Time) + (Read CMD Job Count * Read CMD Job Time) + (Read CMD Hit Count * Read CMD Hit Time) + (Read CMD Miss Count * Read CMD Miss Time))
+ </summary>
+ <param name="array_str_performance_data">The "array_str_performance_data" array contains the values of all parameters to calculate the response time of all luns over the whole timespan.</param>
+ <param name="arraylist_str_element_name">The "arraylist_str_element_name" is an arraylist of string that contains the labels of each element. this is used to know the name of each element and how many times the formula in "str_what _to_do" should be repeated and to know how many columns to skip to get to the right data</param>
+ <param name="str_formula">The "str_what_to_do" contains what to do with the parameters of the element.
+ for example: the array contains the following colums config:
+ time,lun0000 write iops,lun00001 write iops,lun0000 read iops,lun00001 read iops,lun0000 write transfer,lun0001 writen transfer,lun0000 read transfer,lun0001 read transfer
+ the formula (:1:+:2:)/(:3:+:4:) in str_what_to_do" would mean:
+ ("lun0000 write iops"+"lun0000 read iops")/("lun0000 write transfer"+"lun0000 read transfer")
+ and the variable "int_how_many_elements" contains 2 that would mean:
+ the line above is repeated 1 time (2 executions)
+ so LU0000 and lu0001 are processed.
+ ''' </param>
+ <param name="str_filename">The "str_filename" contains the filename that will be in the first line of the file.
+ </param>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.dbl_calculate(System.Array@,System.String,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Dbl_calculates calculates a value out from the formula.
+ </summary>
+ <param name="array_str_performance_data">The array_str_performance_data.</param>
+ <param name="str_formula">The str_formula contains the formula.</param>
+ <param name="int_row">The int_row tells you what row in the array you have to take the values from.</param>
+ <param name="int_total_element_count">The int_total_element_count tells you how many elements you have in the array. this is important to know how many colums to jump to get the next value. example: int_total_element_count is 3 and the formula is :1:+:2:. the to get element :2: you have to jump 3 columns</param>
+ <param name="int_element_number">The int_element_number you know what field to get the values from. if it is 2 (second element of the section) then this means that :1: is column 2 (0 is time, 1 is the first element and 2 is the second element.</param>
+ <returns></returns>
+</member>
+<member name="M:HDS_Performance_Analyse_Tool.Form_Performance_Analyse_Tool_Main.int_save_file_out_of_array(System.Array@,System.String,System.Int32)">
+ <summary>
+ Int_save_file_out_of_arrays saves the performance data of the array_str_performance_data to a file at acertain location.
+ </summary>
+ <param name="array_str_performance_data">The array_str_performance_data contains all perormance data.</param>
+ <param name="str_filepath">The str_filepath contains the filepath (filename and path).</param>
+ <param name="int_array_descriptor_line_count">The int_array_descriptor_line_count contains how many descriptor lines are in the array.</param>
+ <returns></returns>
+</member>
+</members>
+</doc>

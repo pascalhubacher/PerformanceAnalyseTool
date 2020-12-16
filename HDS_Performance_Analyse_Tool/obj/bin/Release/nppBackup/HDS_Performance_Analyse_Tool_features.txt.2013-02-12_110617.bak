@@ -1,0 +1,73 @@
+Prio 1:
+-------
+hm700 (28.11.2012) PhyMainPK_dat.ZIP in programm aufnehmen um backend und frontend busy (esw)
+global (28.11.2012) report window einführen
+
+generell
+15.10.2012 iops, transfer, response time
+- max x-achse fix einstellbar
+
+
+
+Prio 2:
+-------
+enhancement
+01.11.2012 extra options
+- checkbox function ändern, so dass nur noch die sub "TreeView_available_performancedata_AfterSelect" aufgerufen wird.
+
+04.02.2013 CL0/1 port transfer funktioniert nicht
+
+Prio 3:
+-------
+05.02.2013 analyse über mehr als 24 stunden. evtl. longrange.
+
+
+
+
+Enterprise
+----------
+12.09.2012 mppk daten
+- nur linien anzeigen, welche auch werte > 0 haben. sonst kann es bei stark varierenden werten aussehen, als sei ein wert < 0. irritierend.
+
+01.11.2012 mppk anzeigen auf serverebene (welcher server braucht wieviel cpu
+- anhand der mppk daten lassen sich die ldevs den hsd namen zuweisen und so darstellen, wieviel diese ldevs von der cpu last konsumieren.
+
+15.10.2012 ranking
+- ????
+
+15.10.2012 host view
+- all hsd stacked (iops, transfer, response)
+
+07.11.2012 external paths performance Port_dat.ZIP
+- add Port_Initiator_IOPS.csv, Port_Initiator_KBPS.csv, Port_Initiator_Response.csv (TC und UVm zusammen)
+
+07.11.2012
+- Processor\MPB -> move aller MPB daten
+- Processor\DDR -> neu erstellen
+
+07.11.2012
+- External Groups integrieren (PhyExLDEV_dat)
+
+
+Modular
+-------
+
+15.10.2012 luns anzeigen LU-CTL-0000_0200
+
+15.10.2012 multiselect in tree im untersten level
+
+
+
+probleme:
+---------
+21.10.2012 testdaten vsp (lu auf portlevel)
+	nur bei port 3-e bricht der vorgang ab. array global ist plötzlich 1440 anstatt 720?
+
+
+erledigt:
+---------
+15.10.2012 grafik background farbe frei definierbar
+-> 01.11.2012 (0.96 -> beim ersten abspeichern, clipboard, drucken kann definiert werden, ob ein weisser hintergrund gewählt werden soll.
+28.11.2012 hm700 (11.01.2012) PhyMainPK_dat.ZIP in programm aufnehmen um esw und write pending daten zu haben.
+- what type of graph als globale variable setzen
+25.01.2013 1.08 -> erledigt
