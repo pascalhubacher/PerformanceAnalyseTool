@@ -18,7 +18,7 @@ Imports HDS_Performance_Analyse_Tool.Evaluator
 
 Public Class Form_Performance_Analyse_Tool_Main
 
-    Dim version As String = "02.72"
+    Dim version As String = "02.74"
 
 #Region "Global Variables"
     Private Const TVIF_STATE As Integer = &H8
@@ -156,6 +156,7 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_backend_hm700_cache_mainpk As String = "Cache_MainPK"
     Const str_backend_hm700_fepk_mainpk As String = "FEPK_MainPK"
     Const str_openports As String = "Open"
+    Const str_mfports As String = "Mainframe"
     Const str_tchurports As String = "Initiator"
 
     Const str_truecopy As String = "True Copy"
@@ -191,6 +192,13 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_export_filename_port_kbps As String = "Port_KBPS.csv"
     Const str_export_filename_port_response As String = "Port_Response.csv"
     Const str_performance_data_available_port As String = "port"
+
+    Const str_export_foldername_mfport As String = "MFPort_dat"
+    Const str_export_filename_mfport_iops As String = "MF_Port_IOPS.csv"
+    Const str_export_filename_mfport_read_kbps As String = "MF_Port_Read_KBPS.csv"
+    Const str_export_filename_mfport_write_kbps As String = "MF_Port_Write_KBPS.csv"
+    Const str_export_filename_mfport_response As String = "MF_Port_Response.csv"
+
 
     '---------------------------------------------
     'true copy all
@@ -372,6 +380,7 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_storage_type_vsp5000 As String = "VSP 5000 series"
 
     Const str_export_foldername_raid900_phympu As String = "PhyMPU_dat"
+    Const str_export_foldername_raid900_mfport As String = "MFPort_dat"
     Const str_export_foldername_raid900_phyprocdetail As String = "PhyProcDetail_dat" 'MPPK data
 
     Const str_performance_data_available_phympu_raid900 As String = "phympu" 'cache raid9009
@@ -384,6 +393,7 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_export_filename_vsp5000_backend_hie As String = "PHY_Short_HIE_ISW.csv"
     Const str_export_filename_vsp5000_backend_mpu As String = "PHY_Short_MPU_HIE.csv"
     Const str_performance_data_available_phybackend_vsp5000 As String = "phybackend_vsp5000" 'cache RAID900
+    Const str_performance_data_available_mfport As String = "mfport" 'mfport raid
 
     'treeview names
     Const str_raid900_backend_hie As String = "HIE"
@@ -6163,6 +6173,42 @@ Public Class Form_Performance_Analyse_Tool_Main
                     Case "1"
 
                         Select Case str_treeview_node_fullpath
+                             'mf ports
+                            Case str_port & "\" & str_mfports
+
+                                '--------------
+                                'MF PORT IOPS
+                                '--------------
+                                'get the performance data 
+                                array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(0), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                                'show graph
+                                Call array_create_chart("MF Port IO [IOPS]", str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port IO [IOPS]", "MF Port IO", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                                '--------------
+                                'MF PORT Read Transfer
+                                '--------------
+                                'get the performance data 
+                                array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                                'show graph
+                                Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                                '--------------
+                                'MF PORT Write Transfer
+                                '--------------
+                                'get the performance data 
+                                array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                                'show graph
+                                Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                                '--------------
+                                'MF PORT Response
+                                '--------------
+                                'get the performance data 
+                                array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                                'show graph
+                                Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
                             'open ports
                             Case str_port & "\" & str_openports
                                 '--------------
@@ -6209,6 +6255,44 @@ Public Class Form_Performance_Analyse_Tool_Main
                         End Select
 
                     Case "2"
+
+                        'mf ports
+                        If InStr(str_treeview_node_fullpath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
+
+                            '--------------
+                            'MF PORT IOPS
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(0), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port IO [IOPS]", str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port IO [IOPS]", "MF Port IO", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Read Transfer
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Write Transfer
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Response
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
+                        End If
 
                         'open ports
                         If InStr(str_treeview_node_fullpath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
@@ -6263,6 +6347,45 @@ Public Class Form_Performance_Analyse_Tool_Main
                         End If
 
                     Case "3"
+
+                        'mf ports
+                        If InStr(str_treeview_node_fullpath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
+
+                            '--------------
+                            'MF PORT IOPS
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(0), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port IO [IOPS]", str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port IO [IOPS]", "MF Port IO", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Read Transfer
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(1), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Write Transfer
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(2), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT Response
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(3), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
+                        End If
+
                         'open ports
                         If InStr(str_treeview_node_fullpath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
 
@@ -10363,6 +10486,44 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                     Select Case Strings.LCase(file_zipped.Name)
                         '************************************
+                        ' MFPort RAID900
+                        '************************************
+                        Case Strings.LCase(str_export_foldername_raid900_mfport) & ".zip" 'mppk data to be data extracted
+                            'does the unzipped folder exists?
+                            Dim directory_check As New IO.DirectoryInfo(path_performance_export_data & "\" & str_export_foldername_unzipped & "\" & str_export_foldername_raid900_mfport)
+                            If Not directory_check.Exists Then
+                                'unzip files
+                                Label_progress_chart.Text = "Extracting " & Chr(34) & str_export_foldername_raid900_mfport & Chr(34)
+                                Label_progress_chart.Visible = True
+                                Label_progress_chart.Update()
+                                unzip(file_zipped.FullName, path_performance_export_data & "\" & str_export_foldername_unzipped, "")
+                                Label_progress_chart.Visible = False
+                                Label_progress_chart.Update()
+                                TabControl_chart1.Update()
+                                If IsNothing(str_performance_data_available) Then
+                                    str_performance_data_available = str_performance_data_available_mfport
+                                Else
+                                    str_performance_data_available = str_performance_data_available & "," & str_performance_data_available_mfport
+                                End If
+                            Else
+                                'unzip files
+                                Label_progress_chart.Text = "Extracting " & Chr(34) & str_export_foldername_raid900_mfport & Chr(34)
+                                Label_progress_chart.Visible = True
+                                Label_progress_chart.Update()
+                                unzip(file_zipped.FullName, path_performance_export_data & "\" & str_export_foldername_unzipped, "")
+                                Label_progress_chart.Visible = False
+                                Label_progress_chart.Update()
+                                TabControl_chart1.Update()
+                                'phypg data available
+                                'add phypg string to csv string
+                                If IsNothing(str_performance_data_available) Then
+                                    str_performance_data_available = str_performance_data_available_mfport
+                                Else
+                                    str_performance_data_available = str_performance_data_available & "," & str_performance_data_available_mfport
+                                End If
+                            End If
+
+                        '************************************
                         ' MPPK RAID900
                         '************************************
                         Case Strings.LCase(str_export_foldername_raid900_phyprocdetail) & ".zip" 'mppk data to be data extracted
@@ -10383,6 +10544,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                 Else
                                     str_performance_data_available = str_performance_data_available & "," & str_performance_data_available_phypg
                                 End If
+
                             End If
                             'get first file in folder
                             Dim getFIlesOfFolder = directory_check.GetFiles("*.csv")
@@ -12824,7 +12986,68 @@ Public Class Form_Performance_Analyse_Tool_Main
                 'hide checkbox
                 HideRootCheckBox(Me.TreeView_available_performancedata.Nodes(str_port))
 
-                '------------------------------------------------
+                'mf ports
+                If (InStr(str_performance_data_available, str_performance_data_available_mfport, Microsoft.VisualBasic.CompareMethod.Text) <> 0) Then
+                    'set key also
+                    Me.TreeView_available_performancedata.Nodes(str_port).Nodes.Add(str_mfports, str_mfports)
+                    'hide checkbox
+                    HideRootCheckBox(Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_mfports))
+
+
+                    Dim directory_mfport_unzipped As New IO.DirectoryInfo(path_performance_export_data & "\" & str_export_foldername_unzipped & "\" & str_export_foldername_raid900_mfport)
+                    If directory_mfport_unzipped.Exists Then
+                        'go through all zip files in the folder
+                        For Each file_zipped_mfport As FileInfo In directory_mfport_unzipped.GetFiles("*.csv")
+                            'go through the file and look if there are several groups of data
+                            str_elements = str_raid_performance_data_create_elements(path_performance_export_data & "\" & str_export_foldername_unzipped & "\" & str_export_foldername_raid900_mfport & "\" & file_zipped_mfport.Name)
+                            'clear variable
+                            array_str = Nothing
+                            '"No.","time","CL1-A","CL5-A","CL7-A","CL1-B","CL3-B","CL5-B","CL7-B","CL1-C","CL3-C"
+                            array_str = Split(Strings.Replace(str_elements, Chr(34), ""), ",")
+                            str_name = Nothing
+                            str_elements = Nothing
+                            Exit For
+                        Next
+
+                        For Each item As String In array_str
+
+                            'string must not be "No." and "time"
+                            If Not item = str_no_value And Not item = str_time_value Then
+
+                                str_name = Strings.Left(item, 4) & "X"
+
+                                If searchTreeview(str_name, Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_mfports).Nodes, True, False) Is Nothing Then
+
+                                    'add specifig mp blade
+                                    Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_mfports).Nodes.Add(str_name, str_name)
+                                    'hide checkbox
+                                    'HideRootCheckBox(Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_name))
+                                    'add specific mp core
+                                    Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_mfports).Nodes(str_name).Nodes.Add(item, item)
+                                    'hide checkbox
+                                    'HideRootCheckBox(Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_name).Nodes(item))
+
+                                Else
+                                    'add specific mp core
+                                    Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_mfports).Nodes(str_name).Nodes.Add(item, item)
+                                    'hide checkbox
+                                    'HideRootCheckBox(Me.TreeView_available_performancedata.Nodes(str_port).Nodes(str_name).Nodes(item))
+
+                                End If
+                            End If
+                        Next
+                        str_name = Nothing
+                        array_str = Nothing
+
+
+                    End If
+
+
+
+
+                End If
+
+                '----------------------------------------------
                 ' Open ports
                 '------------------------------------------------
 
@@ -13132,6 +13355,7 @@ Public Class Form_Performance_Analyse_Tool_Main
             'which level was clicked on
             Select Case e.Node.Level
                 Case 0
+#Region "Case0"
                     ' case 0 start *******************************************************
                     Select Case str_storage_system
                         Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_raid600, str_storage_type_raid800, str_storage_type_hm800, str_storage_type_vsp5000
@@ -14807,8 +15031,9 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                     End Select
                     ' case 0 start *******************************************************
-
+#End Region
                 Case 1
+#Region "Case1"
 
                     ' case 1 start *******************************************************
                     Select Case str_storage_system
@@ -15039,6 +15264,32 @@ Public Class Form_Performance_Analyse_Tool_Main
                                     Next
 
                                     Select Case e.Node.Name
+                                        Case str_mfports
+
+                                            'clear all old data
+                                            ReDim array_str_filepaths(3)
+
+                                            'MFPorts IOPS
+                                            '-----------
+                                            'set directory path
+                                            array_str_filepaths(0) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_iops
+                                            'MFPorts Read Transfer
+                                            '-----------
+                                            'set directory path
+                                            array_str_filepaths(1) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_read_kbps
+                                            'MFPorts Write Transfer
+                                            '-----------
+                                            'set directory path
+                                            array_str_filepaths(2) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_write_kbps
+                                            'MFPorts Respone
+                                            '-----------
+                                            'set directory path
+                                            array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+
                                         Case str_tchurports
                                             '--------------
                                             'Initiator PORT IOPS
@@ -16510,8 +16761,9 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                     End Select
                     ' case 1 end *******************************************************
-
+#End Region
                 Case 2
+#Region "Case2"
 
                     ' case 2 start *******************************************************
                     Select Case str_storage_system
@@ -17096,6 +17348,33 @@ Public Class Form_Performance_Analyse_Tool_Main
                                             End If
                                         End If
                                     Next
+
+
+                                    If InStr(e.Node.FullPath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
+                                        'clear all old data
+                                        ReDim array_str_filepaths(3)
+
+                                        'MFPorts IOPS
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(0) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_iops
+                                        'MFPorts Read Transfer
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(1) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_read_kbps
+                                        'MFPorts Write Transfer
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(2) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_write_kbps
+                                        'MFPorts Respone
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+                                    End If
 
                                     If InStr(e.Node.FullPath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
                                         'Ports IOPS
@@ -18171,8 +18450,9 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                     End Select
                     ' case 2 end *******************************************************
-
+#End Region
                 Case 3
+#Region "Case3"
                     ' case 3 start *******************************************************
                     Select Case str_storage_system
                         Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_raid600, str_storage_type_raid800, str_storage_type_hm800, str_storage_type_vsp5000
@@ -18466,6 +18746,38 @@ Public Class Form_Performance_Analyse_Tool_Main
                                     array_str_elements(1) = e.Node.Name
                                     array_str_elements(2) = e.Node.Name
 
+                                    If InStr(e.Node.FullPath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
+                                        'clear all old data
+                                        ReDim array_str_elements(3)
+                                        ReDim array_str_filepaths(3)
+
+                                        array_str_elements(0) = e.Node.Name
+                                        array_str_elements(1) = e.Node.Name
+                                        array_str_elements(2) = e.Node.Name
+                                        array_str_elements(3) = e.Node.Name
+
+                                        'MFPorts IOPS
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(0) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_iops
+                                        'MFPorts Read Transfer
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(1) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_read_kbps
+                                        'MFPorts Write Transfer
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(2) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_write_kbps
+                                        'MFPorts Respone
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+                                    End If
+
                                     If InStr(e.Node.FullPath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
                                         'Ports IOPS
                                         '-----------
@@ -18621,9 +18933,12 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                     End Select
                     ' case 3 end *******************************************************
+#End Region
 
 
                 Case 4
+#Region "Case4"
+
                     ' case 4 start *******************************************************
                     Select Case str_storage_system
                         Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_raid600, str_storage_type_raid800, str_storage_type_vsp5000
@@ -18687,7 +19002,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                             End Select
                     End Select
                     ' case 4 end *******************************************************
-
+#End Region
                 Case Else
 
             End Select
