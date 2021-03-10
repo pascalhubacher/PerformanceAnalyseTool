@@ -198,6 +198,7 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_export_filename_mfport_read_kbps As String = "MF_Port_Read_KBPS.csv"
     Const str_export_filename_mfport_write_kbps As String = "MF_Port_Write_KBPS.csv"
     Const str_export_filename_mfport_response As String = "MF_Port_Response.csv"
+    Const str_export_filename_mfport_disc_time As String = "MF_Port_Avr_DisconnectTime.csv"
 
 
     '---------------------------------------------
@@ -6208,6 +6209,14 @@ Public Class Form_Performance_Analyse_Tool_Main
                                 'show graph
                                 Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
+                                '--------------
+                                'MF PORT DiscTime
+                                '--------------
+                                'get the performance data 
+                                array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(4), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                                'show graph
+                                Call array_create_chart("MF Port Disc Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Disc Time [ms]", "MF Port Disc Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
 
                             'open ports
                             Case str_port & "\" & str_openports
@@ -6290,6 +6299,15 @@ Public Class Form_Performance_Analyse_Tool_Main
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
                             Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT DiscTime
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(4), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Disc Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Disc Time [ms]", "MF Port Disc Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
 
 
                         End If
@@ -6382,6 +6400,14 @@ Public Class Form_Performance_Analyse_Tool_Main
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(3), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
                             Call array_create_chart("MF Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'MF PORT DiscTime
+                            '--------------
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(4), str_elements(4), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Disc Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Disc Time [ms]", "MF Port Disc Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
 
                         End If
@@ -15267,7 +15293,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                         Case str_mfports
 
                                             'clear all old data
-                                            ReDim array_str_filepaths(3)
+                                            ReDim array_str_filepaths(4)
 
                                             'MFPorts IOPS
                                             '-----------
@@ -15289,6 +15315,12 @@ Public Class Form_Performance_Analyse_Tool_Main
                                             'set directory path
                                             array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
                                                           str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+
+                                            'MFPorts Disctime
+                                            '-----------
+                                            'set directory path
+                                            array_str_filepaths(4) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                              str_export_foldername_mfport & "\" & str_export_filename_mfport_disc_time
 
                                         Case str_tchurports
                                             '--------------
@@ -17352,7 +17384,7 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                                     If InStr(e.Node.FullPath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
                                         'clear all old data
-                                        ReDim array_str_filepaths(3)
+                                        ReDim array_str_filepaths(4)
 
                                         'MFPorts IOPS
                                         '-----------
@@ -17374,6 +17406,12 @@ Public Class Form_Performance_Analyse_Tool_Main
                                         'set directory path
                                         array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
                                                           str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+                                        'MFPorts Disctime
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(4) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_disc_time
+
                                     End If
 
                                     If InStr(e.Node.FullPath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
@@ -18748,13 +18786,14 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                                     If InStr(e.Node.FullPath, str_mfports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
                                         'clear all old data
-                                        ReDim array_str_elements(3)
-                                        ReDim array_str_filepaths(3)
+                                        ReDim array_str_elements(4)
+                                        ReDim array_str_filepaths(4)
 
                                         array_str_elements(0) = e.Node.Name
                                         array_str_elements(1) = e.Node.Name
                                         array_str_elements(2) = e.Node.Name
                                         array_str_elements(3) = e.Node.Name
+                                        array_str_elements(4) = e.Node.Name
 
                                         'MFPorts IOPS
                                         '-----------
@@ -18776,6 +18815,12 @@ Public Class Form_Performance_Analyse_Tool_Main
                                         'set directory path
                                         array_str_filepaths(3) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
                                                           str_export_foldername_mfport & "\" & str_export_filename_mfport_response
+                                        'MFPorts Disctime
+                                        '-----------
+                                        'set directory path
+                                        array_str_filepaths(4) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
+                                                          str_export_foldername_mfport & "\" & str_export_filename_mfport_disc_time
+
                                     End If
 
                                     If InStr(e.Node.FullPath, str_openports, Microsoft.VisualBasic.CompareMethod.Text) <> 0 Then
