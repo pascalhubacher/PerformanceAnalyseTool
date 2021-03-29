@@ -18,7 +18,7 @@ Imports HDS_Performance_Analyse_Tool.Evaluator
 
 Public Class Form_Performance_Analyse_Tool_Main
 
-    Dim version As String = "02.75"
+    Dim version As String = "02.76"
 
 #Region "Global Variables"
     Private Const TVIF_STATE As Integer = &H8
@@ -4906,6 +4906,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                 'NewChart.Update()
                 series = Nothing
 
+
+
             Case Else ' if "" (empty)
 
                 For i = 1 To UBound(str_performance_data_array, 2) Step 1
@@ -6196,7 +6198,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                 'get the performance data 
                                 array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                                 'show graph
-                                Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                                Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "MF Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                                 '--------------
                                 'MF PORT Write Transfer
@@ -6204,7 +6206,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                 'get the performance data 
                                 array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                                 'show graph
-                                Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                                Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "MF Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                                 '--------------
                                 'MF PORT RW Transfer
@@ -6252,7 +6254,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                 'get the performance data 
                                 array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(8), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                                 'show graph
-                                Call array_create_chart("MF Port OpenExchanges", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_OE, "MF Port OpenExchanges", "MF Port OpenExchanges", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                                Call array_create_chart("MF Port OpenExchanges", str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port OpenExchanges", "MF Port OpenExchanges", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
 
                             'open ports
@@ -6319,7 +6321,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "MF Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT Write Transfer
@@ -6327,7 +6329,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "MF Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT RW Transfer
@@ -6443,7 +6445,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(0), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port IO [IOPS]", str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port IO [IOPS]", "MF Port IO", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port IO [IOPS] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, 1, "MF Port IO [IOPS]", "MF Port IO", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT Read Transfer
@@ -6451,7 +6454,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(1), str_elements(1), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Read Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "MF Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Read Transfer [MB/s] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Read Transfer [MB/s]", "MF Port Read Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT Write Transfer
@@ -6459,7 +6463,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(2), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Write Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "MF Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Write Transfer [MB/s] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Write Transfer [MB/s]", "MF Port Write Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT RW Transfer
@@ -6467,7 +6472,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(3), str_elements(3), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Total Transfer [MB/s]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Total Transfer [MB/s]", "MF Port Total Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Total Transfer [MB/s] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Total Transfer [MB/s]", "MF Port Total Transfer", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT Response
@@ -6475,7 +6481,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(4), str_elements(4), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Response Time [ms]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Response Time [ms] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Response [ms]", "MF Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT DiscTime
@@ -6483,7 +6490,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(5), str_elements(5), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Disconnect Time [ms]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Disconnect Time [ms]", "MF Port Disconnect Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Disconnect Time [ms] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Disconnect Time [ms]", "MF Port Disconnect Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT ConnTime
@@ -6491,7 +6499,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(6), str_elements(6), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port Connect Time [ms]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Connect Time [ms]", "MF Port Connect Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port Connect Time [ms] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port Connect Time [ms]", "MF Port Connect Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT CMR_DLY
@@ -6499,7 +6508,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(7), str_elements(7), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port CMR Time [ms]", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port CMR Time [ms]", "MF Port CMR Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port CMR Time [ms] " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "MF Port CMR Time [ms]", "MF Port CMR Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
                             '--------------
                             'MF PORT OE
@@ -6507,7 +6517,33 @@ Public Class Form_Performance_Analyse_Tool_Main
                             'get the performance data 
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(8), str_elements(8), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
-                            Call array_create_chart("MF Port OpenExchanges", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_OE, "MF Port OpenExchanges", "MF Port OpenExchanges", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+                            Call array_create_chart("MF Port OpenExchanges " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                    str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_OE, "MF Port OpenExchanges", "MF Port OpenExchanges", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
+
+                            '--------------
+                            'MF blocksize
+                            '--------------
+                            Dim temp1 As String = str_file_paths(3)
+                            Dim temp2 As String = str_file_paths(0)
+                            ReDim str_file_paths(1)
+                            str_file_paths(0) = temp1
+                            str_file_paths(1) = temp2
+
+                            temp1 = str_elements(0)
+                            ReDim str_elements(1)
+                            str_elements(0) = temp1
+                            str_elements(1) = temp1
+
+                            temp1 = Nothing
+                            temp2 = Nothing
+
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array_of_several_files(str_file_paths, str_elements, str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("MF Port Blocksize " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                      str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "MF Port Blocksize [kB]", "MF Port Blocksize", array_str_performance_data_array, str_what_type_of_graph, "div", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
 
 
                         End If
@@ -6537,6 +6573,34 @@ Public Class Form_Performance_Analyse_Tool_Main
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(2), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
                             Call array_create_chart("Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "Port Response [ms]", "Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'Port BlockSize
+                            '--------------
+                            Dim temp1 As String = str_file_paths(1)
+                            Dim temp2 As String = str_file_paths(0)
+                            ReDim str_file_paths(1)
+                            str_file_paths(0) = temp1
+                            str_file_paths(1) = temp2
+
+                            temp1 = str_elements(0)
+                            ReDim str_elements(1)
+                            str_elements(0) = temp1
+                            str_elements(1) = temp1
+
+                            temp1 = Nothing
+                            temp2 = Nothing
+
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array_of_several_files(str_file_paths, str_elements, str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("Port Blocksize " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                      str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "Port Blocksize [kB]", "Port Blocksize", array_str_performance_data_array, str_what_type_of_graph, "div", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
+
+
+
                         End If
 
                         'initiator ports
@@ -6563,6 +6627,33 @@ Public Class Form_Performance_Analyse_Tool_Main
                             array_str_performance_data_array = array_raid_performance_data_put_in_array(str_file_paths(2), str_elements(0), str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, 0, 100, int_array_descritor_line_count)
                             'show graph
                             Call array_create_chart("Initiator Port Response Time", str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_us_ms, "Initiator Port Response [ms]", "Initiator Port Response Time", array_str_performance_data_array, str_what_type_of_graph, "", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+                            '--------------
+                            'Port BlockSize
+                            '--------------
+                            Dim temp1 As String = str_file_paths(1)
+                            Dim temp2 As String = str_file_paths(0)
+                            ReDim str_file_paths(1)
+                            str_file_paths(0) = temp1
+                            str_file_paths(1) = temp2
+
+                            temp1 = str_elements(0)
+                            ReDim str_elements(1)
+                            str_elements(0) = temp1
+                            str_elements(1) = temp1
+
+                            temp1 = Nothing
+                            temp2 = Nothing
+
+                            'get the performance data 
+                            array_str_performance_data_array = array_raid_performance_data_put_in_array_of_several_files(str_file_paths, str_elements, str_port, "", date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value, int_array_descritor_line_count)
+                            'show graph
+                            Call array_create_chart("Initiator Port Blocksize " & str_get_treeview_name(str_treeview_node_fullpath, str_treeview_level),
+                                                      str_treeview_node_fullpath, str_treeview_level, 0, dbl_conversion_kb_mb, "Initiator Port Blocksize [kB]", "Initiator Port Blocksize", array_str_performance_data_array, str_what_type_of_graph, "div", int_array_descritor_line_count, date_datetimepicker_start_performancedate_value, date_datetimepicker_end_performancedate_value)
+
+
+
+
                         End If
 
 
@@ -6880,7 +6971,7 @@ Public Class Form_Performance_Analyse_Tool_Main
 
                         Select Case str_storage_type
 
-                            Case str_storage_type_raid700, str_storage_type_raid750
+                            Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_raid800, str_storage_type_vsp5000
 
                                 If InStr(str_file_paths(0), str_export_filename_lu_kbps_write) > 0 Then ' Transfer
 
@@ -18746,7 +18837,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                                     '-------------------------------------------
 
                                     Select Case str_storage_system
-                                        Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_hm800, str_storage_type_raid800
+                                        Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_hm800, str_storage_type_raid800, str_storage_type_vsp5000
 
                                             ReDim array_str_filepaths(1)
                                             array_str_filepaths(0) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" & _
@@ -18779,7 +18870,8 @@ Public Class Form_Performance_Analyse_Tool_Main
                                     '-------------------------------------------
 
                                     Select Case str_storage_system
-                                        Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_hm800, str_storage_type_raid800
+                                        Case str_storage_type_raid700, str_storage_type_raid750, str_storage_type_hm800, str_storage_type_raid800, str_storage_type_vsp5000
+
 
                                             ReDim array_str_filepaths(1)
                                             array_str_filepaths(0) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" & _
@@ -18986,7 +19078,6 @@ Public Class Form_Performance_Analyse_Tool_Main
                                         'set directory path
                                         array_str_filepaths(8) = path_performance_export_data & "\" & str_export_foldername_unzipped & "\" &
                                                           str_export_foldername_mfport & "\" & str_export_filename_mfport_oe
-
 
 
                                     End If
