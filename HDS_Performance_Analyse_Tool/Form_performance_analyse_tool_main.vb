@@ -18,7 +18,7 @@ Imports HDS_Performance_Analyse_Tool.Evaluator
 
 Public Class Form_Performance_Analyse_Tool_Main
 
-    Dim version As String = "02.76"
+    Dim version As String = "02.77"
 
 #Region "Global Variables"
     Private Const TVIF_STATE As Integer = &H8
@@ -376,6 +376,7 @@ Public Class Form_Performance_Analyse_Tool_Main
     Const str_storage_type_G900 As String = "VSP G900"
     Const str_storage_type_GF350 As String = "VSP G350"
     Const str_storage_type_GF130 As String = "VSP G130"
+    Const str_storage_type_E990 As String = "VSP E990"
 
 #End Region
 
@@ -899,6 +900,15 @@ Public Class Form_Performance_Analyse_Tool_Main
         arraylist_husvm_mp.Add("MPU-10.MP10-11,MPU-10(MP11)")
         arraylist_husvm_mp.Add("MPU-10.MP10-12,MPU-10(MP12)")
         arraylist_husvm_mp.Add("MPU-10.MP10-13,MPU-10(MP13)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-14,MPU-10(MP14)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-15,MPU-10(MP15)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-16,MPU-10(MP16)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-17,MPU-10(MP17)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-18,MPU-10(MP18)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-19,MPU-10(MP19)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-1A,MPU-10(MP1A)")
+        arraylist_husvm_mp.Add("MPU-10.MP10-1B,MPU-10(MP1B)")
+
 
         arraylist_husvm_mp.Add("MPU-11.MP11-00,MPU-11(MP00)")
         arraylist_husvm_mp.Add("MPU-11.MP11-01,MPU-11(MP01)")
@@ -941,6 +951,15 @@ Public Class Form_Performance_Analyse_Tool_Main
         arraylist_husvm_mp.Add("MPU-20.MP20-11,MPU-20(MP11)")
         arraylist_husvm_mp.Add("MPU-20.MP20-12,MPU-20(MP12)")
         arraylist_husvm_mp.Add("MPU-20.MP20-13,MPU-20(MP13)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-14,MPU-20(MP14)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-15,MPU-20(MP15)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-16,MPU-20(MP16)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-17,MPU-20(MP17)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-18,MPU-20(MP18)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-19,MPU-20(MP19)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-1A,MPU-20(MP1A)")
+        arraylist_husvm_mp.Add("MPU-20.MP20-1B,MPU-20(MP1B)")
+
 
         arraylist_husvm_mp.Add("MPU-21.MP21-00,MPU-21(MP00)")
         arraylist_husvm_mp.Add("MPU-21.MP21-01,MPU-21(MP01)")
@@ -21475,7 +21494,7 @@ Public Class Form_Performance_Analyse_Tool_Main
                     Exit Do
                 End If
 
-                If (InStr(str_storage_identifier, str_storage_type_G100) > 0) Or (InStr(str_storage_identifier, str_storage_type_G200) > 0) Or (InStr(str_storage_identifier, str_storage_type_G400_G600) > 0) Or (InStr(str_storage_identifier, str_storage_type_G800) > 0) Or (InStr(str_storage_identifier, str_storage_type_F370) > 0) Or (InStr(str_storage_identifier, str_storage_type_F700) > 0) Or (InStr(str_storage_identifier, str_storage_type_G900) > 0 Or (InStr(str_storage_identifier, str_storage_type_GF350) > 0 Or (InStr(str_storage_identifier, str_storage_type_GF130) > 0))) Then
+                If (InStr(str_storage_identifier, str_storage_type_E990) > 0) Or (InStr(str_storage_identifier, str_storage_type_G100) > 0) Or (InStr(str_storage_identifier, str_storage_type_G200) > 0) Or (InStr(str_storage_identifier, str_storage_type_G400_G600) > 0) Or (InStr(str_storage_identifier, str_storage_type_G800) > 0) Or (InStr(str_storage_identifier, str_storage_type_F370) > 0) Or (InStr(str_storage_identifier, str_storage_type_F700) > 0) Or (InStr(str_storage_identifier, str_storage_type_G900) > 0 Or (InStr(str_storage_identifier, str_storage_type_GF350) > 0 Or (InStr(str_storage_identifier, str_storage_type_GF130) > 0))) Then
                     str_what_storage_is_it = str_storage_type_hm800
                     Exit Do
                 End If
