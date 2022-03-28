@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HDS_Performance_Analyse_Tool.exe" size="644608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HDS_Performance_Analyse_Tool.exe" size="646144">
       <assemblyIdentity name="HDS_Performance_Analyse_Tool" version="2017.319.1235.22" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jyUUd1J9/C0fmIghTbIPFgO88vk=</dsig:DigestValue>
+        <dsig:DigestValue>6+Fn/e5W6stG5+kCbaqiBckXiYk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

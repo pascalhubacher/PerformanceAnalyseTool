@@ -18,7 +18,7 @@ Imports HDS_Performance_Analyse_Tool.Evaluator
 
 Public Class Form_Performance_Analyse_Tool_Main
 
-    Dim version As String = "02.79"
+    Dim version As String = "02.78"
 
 #Region "Global Variables"
     Private Const TVIF_STATE As Integer = &H8
@@ -908,10 +908,6 @@ Public Class Form_Performance_Analyse_Tool_Main
         arraylist_husvm_mp.Add("MPU-10.MP10-19,MPU-10(MP19)")
         arraylist_husvm_mp.Add("MPU-10.MP10-1A,MPU-10(MP1A)")
         arraylist_husvm_mp.Add("MPU-10.MP10-1B,MPU-10(MP1B)")
-        arraylist_husvm_mp.Add("MPU-10.MP10-1C,MPU-10(MP1C)")
-        arraylist_husvm_mp.Add("MPU-10.MP10-1D,MPU-10(MP1D)")
-        arraylist_husvm_mp.Add("MPU-10.MP10-1E,MPU-10(MP1E)")
-        arraylist_husvm_mp.Add("MPU-10.MP10-1F,MPU-10(MP1F)")
 
 
         arraylist_husvm_mp.Add("MPU-11.MP11-00,MPU-11(MP00)")
@@ -963,10 +959,6 @@ Public Class Form_Performance_Analyse_Tool_Main
         arraylist_husvm_mp.Add("MPU-20.MP20-19,MPU-20(MP19)")
         arraylist_husvm_mp.Add("MPU-20.MP20-1A,MPU-20(MP1A)")
         arraylist_husvm_mp.Add("MPU-20.MP20-1B,MPU-20(MP1B)")
-        arraylist_husvm_mp.Add("MPU-20.MP20-1C,MPU-20(MP1C)")
-        arraylist_husvm_mp.Add("MPU-20.MP20-1D,MPU-20(MP1D)")
-        arraylist_husvm_mp.Add("MPU-20.MP20-1E,MPU-20(MP1E)")
-        arraylist_husvm_mp.Add("MPU-20.MP20-1F,MPU-20(MP1F)")
 
         arraylist_husvm_mp.Add("MPU-21.MP21-00,MPU-21(MP00)")
         arraylist_husvm_mp.Add("MPU-21.MP21-01,MPU-21(MP01)")
